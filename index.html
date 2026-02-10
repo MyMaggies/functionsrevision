@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Functions Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .progress {
+            background: #e0e0e0;
+            height: 12px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+        }
+
+        .question-number {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .question-prompt {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            background: white;
+            border: 3px solid #667eea;
+            padding: 20px;
+            font-size: 1.3em;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .option-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .option-btn.correct {
+            background: #10b981;
+            border-color: #10b981;
+            color: white;
+        }
+
+        .option-btn.incorrect {
+            background: #ef4444;
+            border-color: #ef4444;
+            color: white;
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .feedback {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: center;
+            display: none;
+        }
+
+        .feedback.correct {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid #10b981;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #ef4444;
+            display: block;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.3em;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            display: none;
+            transition: transform 0.2s ease;
+        }
+
+        .next-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .next-btn.show {
+            display: block;
+        }
+
+        .score-box {
+            text-align: center;
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .score-box span {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .final-score {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .final-score h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .final-score .score {
+            font-size: 3em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .restart-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 18px 60px;
+            font-size: 1.3em;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+
+        .restart-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Sentence Functions Quiz</h1>
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="score-box">
+            Score: <span id="score">0</span> / <span id="total">50</span>
+        </div>
+        <div id="quizContainer"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {q: "Please close the door", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "What time does the movie start", options: [".", "?", "!", "..."], answer: "?"},
+            {q: "The sun rises in the east", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "How beautiful the sunset is", options: [".", "?", "!", ","], answer: "!"},
+            {q: "Did you finish your homework", options: [".", "?", "!", ";"], answer: "?"},
+            {q: "Watch out for that car", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Exclamatory"},
+            {q: "Turn off the lights when you leave", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "She plays the piano every day", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "Where did you put my keys", options: [".", "?", "!", "-"], answer: "?"},
+            {q: "We won the championship", options: [".", "?", "!", ":"], answer: "!"},
+            {q: "Please pass the salt", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "The library closes at 9 PM", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "Can you help me with this problem", options: [".", "?", "!", ","], answer: "?"},
+            {q: "What an amazing performance that was", options: [".", "?", "!", "-"], answer: "!"},
+            {q: "Study hard for your exam", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "Mount Everest is the tallest mountain", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "Who is your favorite author", options: [".", "?", "!", ";"], answer: "?"},
+            {q: "I can't believe we actually did it", options: [".", "?", "!", ":"], answer: "!"},
+            {q: "Listen carefully to the instructions", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "The concert starts at seven o'clock", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "Have you seen my backpack", options: [".", "?", "!", "..."], answer: "?"},
+            {q: "That's absolutely incredible", options: [".", "?", "!", ","], answer: "!"},
+            {q: "Remember to bring your umbrella", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "Water freezes at zero degrees Celsius", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "Why are you laughing", options: [".", "?", "!", "-"], answer: "?"},
+            {q: "This is the best day ever", options: [".", "?", "!", ":"], answer: "!"},
+            {q: "Clean your room before dinner", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "Dogs are loyal animals", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "When does the train arrive", options: [".", "?", "!", ";"], answer: "?"},
+            {q: "How wonderful to see you again", options: [".", "?", "!", ","], answer: "!"},
+            {q: "Take a deep breath and relax", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "Earth orbits around the sun", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "Are we there yet", options: [".", "?", "!", "..."], answer: "?"},
+            {q: "What a surprise this is", options: [".", "?", "!", "-"], answer: "!"},
+            {q: "Don't forget to lock the door", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "Shakespeare wrote many famous plays", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "Which color do you prefer", options: [".", "?", "!", ":"], answer: "?"},
+            {q: "I'm so happy I could dance", options: [".", "?", "!", ","], answer: "!"},
+            {q: "Show me your homework", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "The museum opens at ten", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "How old are you", options: [".", "?", "!", ";"], answer: "?"},
+            {q: "That was such a close call", options: [".", "?", "!", "-"], answer: "!"},
+            {q: "Raise your hand if you know the answer", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "Butterflies have four wings", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "Is anyone home", options: [".", "?", "!", "..."], answer: "?"},
+            {q: "What a terrible mess", options: [".", "?", "!", ":"], answer: "!"},
+            {q: "Save your work before closing", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
+            {q: "The moon reflects light from the sun", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
+            {q: "Would you like some tea", options: [".", "?", "!", ","], answer: "?"},
+            {q: "We finally made it to the top", options: [".", "?", "!", "-"], answer: "!"}
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        function updateProgress() {
+            const progress = ((currentQuestion) / questions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function displayQuestion() {
+            answered = false;
+            const container = document.getElementById('quizContainer');
+            const q = questions[currentQuestion];
+            
+            container.innerHTML = `
+                <div class="question-box">
+                    <div class="question-number">Question ${currentQuestion + 1} of ${questions.length}</div>
+                    <div class="question-text">${q.q}</div>
+                    <div class="question-prompt">${q.options[0].length > 2 ? 'What is the function of this sentence?' : 'What punctuation mark should end this sentence?'}</div>
+                </div>
+                <div class="feedback" id="feedback"></div>
+                <div class="options" id="options"></div>
+                <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Next Question</button>
+            `;
+
+            const optionsContainer = document.getElementById('options');
+            q.options.forEach(option => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = option;
+                btn.onclick = () => checkAnswer(option, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(selected, btn) {
+            if (answered) return;
+            answered = true;
+
+            const q = questions[currentQuestion];
+            const feedback = document.getElementById('feedback');
+            const buttons = document.querySelectorAll('.option-btn');
+            
+            buttons.forEach(b => b.disabled = true);
+
+            if (selected === q.answer) {
+                btn.classList.add('correct');
+                feedback.className = 'feedback correct';
+                feedback.textContent = '✓ Correct!';
+                score++;
+                document.getElementById('score').textContent = score;
+            } else {
+                btn.classList.add('incorrect');
+                feedback.className = 'feedback incorrect';
+                feedback.textContent = `✗ Incorrect. The correct answer is: ${q.answer}`;
+                
+                buttons.forEach(b => {
+                    if (b.textContent === q.answer) {
+                        b.classList.add('correct');
+                    }
+                });
+            }
+
+            document.getElementById('nextBtn').classList.add('show');
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            updateProgress();
+
+            if (currentQuestion < questions.length) {
+                displayQuestion();
+            } else {
+                showFinalScore();
+            }
+        }
+
+        function showFinalScore() {
+            const container = document.getElementById('quizContainer');
+            const percentage = Math.round((score / questions.length) * 100);
+            
+            let message = '';
+            if (percentage >= 90) message = '🌟 Outstanding work!';
+            else if (percentage >= 80) message = '🎉 Great job!';
+            else if (percentage >= 70) message = '👍 Good effort!';
+            else if (percentage >= 60) message = '📚 Keep practicing!';
+            else message = '💪 Try again!';
+
+            container.innerHTML = `
+                <div class="final-score">
+                    <h2>${message}</h2>
+                    <div class="score">${score} / ${questions.length}</div>
+                    <div style="font-size: 1.5em; color: #667eea; margin-bottom: 30px;">${percentage}%</div>
+                    <button class="restart-btn" onclick="restartQuiz()">Start Over</button>
+                </div>
+            `;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('score').textContent = score;
+            updateProgress();
+            displayQuestion();
+        }
+
+        displayQuestion();
+        updateProgress();
+    </script>
+</body>
+</html>
