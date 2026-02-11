@@ -231,56 +231,56 @@
 
     <script>
         const questions = [
-            {q: "Please close the door", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "What time does the movie start", options: [".", "?", "!", "..."], answer: "?"},
-            {q: "The sun rises in the east", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "How beautiful the sunset is", options: [".", "?", "!", ","], answer: "!"},
-            {q: "Did you finish your homework", options: [".", "?", "!", ";"], answer: "?"},
-            {q: "Watch out for that car", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "Turn off the lights when you leave", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "She plays the piano every day", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "Where did you put my keys", options: [".", "?", "!", "-"], answer: "?"},
-            {q: "We won the championship", options: [".", "?", "!", ":"], answer: "!"},
-            {q: "Please pass the salt", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "The library closes at 9 PM", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "Can you help me with this problem", options: [".", "?", "!", ","], answer: "?"},
-            {q: "What an amazing performance that was", options: [".", "?", "!", "-"], answer: "!"},
-            {q: "Study hard for your exam", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "Mount Everest is the tallest mountain", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "Who is your favorite author", options: [".", "?", "!", ";"], answer: "?"},
-            {q: "I can't believe we actually did it", options: [".", "?", "!", ":"], answer: "!"},
-            {q: "Listen carefully to the instructions", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "The concert starts at seven o'clock", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "Have you seen my backpack", options: [".", "?", "!", "..."], answer: "?"},
-            {q: "That's absolutely incredible", options: [".", "?", "!", ","], answer: "!"},
-            {q: "Remember to bring your umbrella", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "Water freezes at zero degrees Celsius", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "Why are you laughing", options: [".", "?", "!", "-"], answer: "?"},
-            {q: "This is the best day ever", options: [".", "?", "!", ":"], answer: "!"},
-            {q: "Clean your room before dinner", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "Dogs are loyal animals", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "When does the train arrive", options: [".", "?", "!", ";"], answer: "?"},
-            {q: "How wonderful to see you again", options: [".", "?", "!", ","], answer: "!"},
-            {q: "Take a deep breath and relax", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "Earth orbits around the sun", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "Are we there yet", options: [".", "?", "!", "..."], answer: "?"},
-            {q: "What a surprise this is", options: [".", "?", "!", "-"], answer: "!"},
-            {q: "Don't forget to lock the door", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "Shakespeare wrote many famous plays", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "Which color do you prefer", options: [".", "?", "!", ":"], answer: "?"},
-            {q: "I'm so happy I could dance", options: [".", "?", "!", ","], answer: "!"},
-            {q: "Show me your homework", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "The museum opens at ten", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "How old are you", options: [".", "?", "!", ";"], answer: "?"},
-            {q: "That was such a close call", options: [".", "?", "!", "-"], answer: "!"},
-            {q: "Raise your hand if you know the answer", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "Butterflies have four wings", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "Is anyone home", options: [".", "?", "!", "..."], answer: "?"},
-            {q: "What a terrible mess", options: [".", "?", "!", ":"], answer: "!"},
-            {q: "Save your work before closing", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative"},
-            {q: "The moon reflects light from the sun", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative"},
-            {q: "Would you like some tea", options: [".", "?", "!", ","], answer: "?"},
-            {q: "We finally made it to the top", options: [".", "?", "!", "-"], answer: "!"}
+            {q: "Please close the door", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because it gives a command or makes a request. The word 'Please' is polite, but it's still telling someone to do something."},
+            {q: "What time does the movie start", options: [".", "?", "!", "..."], answer: "?", explanation: "This is a question asking for information, so it needs a question mark (?). Questions always end with question marks."},
+            {q: "The sun rises in the east", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative", explanation: "This is a declarative sentence because it makes a statement or declares a fact. It simply tells us information."},
+            {q: "How beautiful the sunset is", options: [".", "?", "!", ","], answer: "!", explanation: "This is an exclamatory sentence expressing strong emotion or excitement, so it needs an exclamation mark (!). The word 'How' at the beginning shows strong feeling."},
+            {q: "Did you finish your homework", options: [".", "?", "!", ";"], answer: "?", explanation: "This is a question asking for a yes/no answer, so it needs a question mark (?). It's asking about whether something was completed."},
+            {q: "Watch out for that car", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Exclamatory", explanation: "This is an exclamatory sentence because it expresses sudden emotion or urgency with strong feeling. While it could be seen as a warning (imperative), the emphasis is on the emotional reaction to danger."},
+            {q: "Turn off the lights when you leave", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because it gives a direct command or instruction. It tells someone what to do."},
+            {q: "She plays the piano every day", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative", explanation: "This is a declarative sentence because it states a fact about someone's habit. It simply provides information."},
+            {q: "Where did you put my keys", options: [".", "?", "!", "-"], answer: "?", explanation: "This is a question asking for the location of something, so it needs a question mark (?). The word 'Where' signals that it's a question."},
+            {q: "We won the championship", options: [".", "?", "!", ":"], answer: "!", explanation: "This sentence expresses excitement and strong emotion about winning, so it needs an exclamation mark (!). The achievement calls for enthusiastic punctuation."},
+            {q: "Please pass the salt", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because it makes a polite request or command. Even with 'please', it's still telling someone to do something."},
+            {q: "The library closes at 9 PM", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative", explanation: "This is a declarative sentence because it states a fact about the library's closing time. It simply gives information."},
+            {q: "Can you help me with this problem", options: [".", "?", "!", ","], answer: "?", explanation: "This is a question asking for assistance, so it needs a question mark (?). Even though it sounds polite, it's still asking a question."},
+            {q: "What an amazing performance that was", options: [".", "?", "!", "-"], answer: "!", explanation: "This is an exclamatory sentence expressing strong admiration and excitement, so it needs an exclamation mark (!). The phrase 'What an amazing' shows strong emotion."},
+            {q: "Study hard for your exam", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because it gives advice or a command about what someone should do. It's instructing someone to take action."},
+            {q: "Mount Everest is the tallest mountain", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative", explanation: "This is a declarative sentence because it states a geographical fact. It simply declares information about Mount Everest."},
+            {q: "Who is your favorite author", options: [".", "?", "!", ";"], answer: "?", explanation: "This is a question asking for someone's preference, so it needs a question mark (?). The word 'Who' indicates it's asking for information."},
+            {q: "I can't believe we actually did it", options: [".", "?", "!", ":"], answer: "!", explanation: "This sentence expresses amazement and strong emotion, so it needs an exclamation mark (!). The phrase 'I can't believe' shows excitement and surprise."},
+            {q: "Listen carefully to the instructions", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because it commands someone to pay attention. It's giving a direct instruction."},
+            {q: "The concert starts at seven o'clock", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative", explanation: "This is a declarative sentence because it states a fact about when the concert begins. It simply provides information."},
+            {q: "Have you seen my backpack", options: [".", "?", "!", "..."], answer: "?", explanation: "This is a question asking if someone has seen something, so it needs a question mark (?). It's seeking information about the location of an item."},
+            {q: "That's absolutely incredible", options: [".", "?", "!", ","], answer: "!", explanation: "This sentence expresses strong amazement or excitement, so it needs an exclamation mark (!). The word 'absolutely' intensifies the emotion."},
+            {q: "Remember to bring your umbrella", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because it reminds or tells someone to do something. It's giving instruction or advice."},
+            {q: "Water freezes at zero degrees Celsius", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative", explanation: "This is a declarative sentence because it states a scientific fact. It simply declares information about water's freezing point."},
+            {q: "Why are you laughing", options: [".", "?", "!", "-"], answer: "?", explanation: "This is a question asking for a reason, so it needs a question mark (?). The word 'Why' clearly indicates it's asking for an explanation."},
+            {q: "This is the best day ever", options: [".", "?", "!", ":"], answer: "!", explanation: "This sentence expresses extreme happiness and excitement, so it needs an exclamation mark (!). The superlative 'best ever' shows strong positive emotion."},
+            {q: "Clean your room before dinner", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because it gives a direct command about what needs to be done. It's instructing someone to take action."},
+            {q: "Dogs are loyal animals", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative", explanation: "This is a declarative sentence because it states an opinion or fact about dogs. It simply declares information."},
+            {q: "When does the train arrive", options: [".", "?", "!", ";"], answer: "?", explanation: "This is a question asking about timing, so it needs a question mark (?). The word 'When' signals that it's asking for information."},
+            {q: "How wonderful to see you again", options: [".", "?", "!", ","], answer: "!", explanation: "This sentence expresses joy and strong positive emotion, so it needs an exclamation mark (!). The word 'How wonderful' shows enthusiasm."},
+            {q: "After the meeting ends, submit your reports", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because it gives a command, even though it starts with a time phrase. The main clause 'submit your reports' is the command. Don't be fooled by the introductory phrase!"},
+            {q: "If you see Sarah, tell her to call me", options: [".", "?", "!", ","], answer: ".", explanation: "This is an imperative sentence giving a command, so it needs a period (.). The conditional 'If' clause makes it tricky, but the main instruction is still a command. Imperatives typically end with periods unless showing strong emotion."},
+            {q: "Before you leave tonight, lock all the windows", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because the main clause 'lock all the windows' is a command. The time phrase 'Before you leave tonight' just tells when to do it, but it's still giving an instruction."},
+            {q: "When the bell rings, line up quietly", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because 'line up quietly' is a command. The 'When' clause tells when to perform the action, but the sentence is still giving an order."},
+            {q: "Although it's raining, take out the trash", options: [".", "?", "!", ","], answer: ".", explanation: "This is an imperative sentence giving a command, so it needs a period (.). The 'Although' clause provides context, but 'take out the trash' is still a command requiring action."},
+            {q: "The author wrote extensively about social justice", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative", explanation: "This is a declarative sentence because it states a fact about the author's work. It simply provides information without commanding or asking."},
+            {q: "In case of emergency, break the glass", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because 'break the glass' is a command. The phrase 'In case of emergency' provides a condition, but the main clause is still an instruction."},
+            {q: "Until further notice, park in the side lot", options: [".", "?", "!", ","], answer: ".", explanation: "This is an imperative sentence giving an instruction, so it needs a period (.). 'Park in the side lot' is the command, and 'Until further notice' tells how long to follow it."},
+            {q: "Whenever you're ready, begin the presentation", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because 'begin the presentation' is a command. The 'Whenever you're ready' clause just indicates timing, but it's still instructing someone to act."},
+            {q: "Scientists discovered a new species last year", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative", explanation: "This is a declarative sentence because it states a fact about a past discovery. It simply provides information about what happened."},
+            {q: "Since you have time, review chapter five", options: [".", "?", "!", ","], answer: ".", explanation: "This is an imperative sentence giving a command, so it needs a period (.). The 'Since' clause provides a reason, but 'review chapter five' is still an instruction."},
+            {q: "As soon as you arrive, check in at the front desk", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because 'check in at the front desk' is a command. The time phrase 'As soon as you arrive' specifies when, but it's still giving an order."},
+            {q: "During the fire drill, walk calmly to the exit", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because 'walk calmly to the exit' is a command. 'During the fire drill' tells when to do it, but the sentence is still instructing action."},
+            {q: "While the paint is wet, keep the windows open", options: [".", "?", "!", ","], answer: ".", explanation: "This is an imperative sentence giving an instruction, so it needs a period (.). 'Keep the windows open' is the command, with the 'While' clause providing the timeframe."},
+            {q: "Unless you hear otherwise, meet at noon", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because 'meet at noon' is a command. The conditional 'Unless you hear otherwise' provides an exception, but it's still giving an instruction."},
+            {q: "The committee will review all applications carefully", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Declarative", explanation: "This is a declarative sentence because it states what the committee will do. It provides information about a future action, not a command."},
+            {q: "For best results, follow the directions exactly", options: [".", "?", "!", ","], answer: ".", explanation: "This is an imperative sentence giving advice or a command, so it needs a period (.). 'Follow the directions exactly' is the instruction, with 'For best results' explaining why."},
+            {q: "Once everyone arrives, start the movie", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because 'start the movie' is a command. The 'Once everyone arrives' clause indicates when to act, but it's still giving an instruction."},
+            {q: "To avoid confusion, label each box clearly", options: [".", "?", "!", ","], answer: ".", explanation: "This is an imperative sentence giving an instruction, so it needs a period (.). 'Label each box clearly' is the command, and 'To avoid confusion' explains the purpose."},
+            {q: "Because it's your birthday, make a wish", options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"], answer: "Imperative", explanation: "This is an imperative sentence because 'make a wish' is a command. The 'Because' clause gives a reason, but the main clause is still instructing someone to act."}
         ];
 
         let currentQuestion = 0;
@@ -334,10 +334,15 @@
                 feedback.textContent = '✓ Correct!';
                 score++;
                 document.getElementById('score').textContent = score;
+                document.getElementById('nextBtn').classList.add('show');
             } else {
                 btn.classList.add('incorrect');
                 feedback.className = 'feedback incorrect';
-                feedback.textContent = `✗ Incorrect. The correct answer is: ${q.answer}`;
+                feedback.innerHTML = `
+                    <div style="margin-bottom: 15px;">✗ Incorrect. The correct answer is: <strong>${q.answer}</strong></div>
+                    <div style="font-size: 0.9em; font-weight: normal; margin-bottom: 15px; line-height: 1.5;">${q.explanation}</div>
+                    <button onclick="retryQuestion()" style="background: white; color: #ef4444; border: 2px solid #ef4444; padding: 10px 25px; border-radius: 8px; font-size: 1em; font-weight: bold; cursor: pointer; transition: all 0.3s;">Try Again</button>
+                `;
                 
                 buttons.forEach(b => {
                     if (b.textContent === q.answer) {
@@ -345,8 +350,19 @@
                     }
                 });
             }
+        }
 
-            document.getElementById('nextBtn').classList.add('show');
+        function retryQuestion() {
+            answered = false;
+            const feedback = document.getElementById('feedback');
+            const buttons = document.querySelectorAll('.option-btn');
+            
+            feedback.style.display = 'none';
+            
+            buttons.forEach(b => {
+                b.disabled = false;
+                b.classList.remove('correct', 'incorrect');
+            });
         }
 
         function nextQuestion() {
